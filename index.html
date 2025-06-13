@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Excel Functions: An Interactive Guide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f5f7; /* A slightly cooler gray */
+            color: #334155; /* slate-700 */
+        }
+        .function-card {
+            background-color: white;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.05), 0 1px 2px -1px rgb(0 0 0 / 0.05);
+        }
+        .function-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        }
+        code {
+            background-color: #f1f5f9; /* slate-100 */
+            color: #475569; /* slate-600 */
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.375rem;
+            font-family: monospace;
+            border: 1px solid #e2e8f0; /* slate-200 */
+        }
+        .doc-button {
+            transition: all 0.2s ease;
+        }
+        .doc-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-12">
+            <h1 class="text-4xl sm:text-5xl font-bold text-slate-800 tracking-tight">
+                Modern Excel Functions
+            </h1>
+            <p class="mt-3 text-lg text-slate-600 max-w-3xl mx-auto">A quick reference for Excel's powerful dynamic array functions, complete with an interactive documentation viewer.</p>
+        </header>
+
+        <!-- Main Function Grid -->
+        <main class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+
+            <!-- Card: XLOOKUP -->
+            <div class="function-card rounded-lg p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">XLOOKUP</h2>
+                <p class="text-sm mb-4 text-slate-600">The modern and flexible replacement for VLOOKUP. Searches a range or array for a match and returns the corresponding item from a second range or array. Can look left or right.</p>
+                <dl class="text-sm">
+                    <dt class="font-semibold text-slate-800">Syntax:</dt>
+                    <dd><code>=XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found])</code></dd>
+                </dl>
+            </div>
+
+            <!-- Card: FILTER -->
+            <div class="function-card rounded-lg p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">FILTER</h2>
+                <p class="text-sm mb-4 text-slate-600">Filters a range of data based on supplied criteria, returning only the rows or columns that match. Results "spill" into adjacent cells automatically.</p>
+                <dl class="text-sm">
+                    <dt class="font-semibold text-slate-800">Syntax:</dt>
+                    <dd><code>=FILTER(array, include, [if_empty])</code></dd>
+                </dl>
+            </div>
+
+            <!-- Card: SORT & UNIQUE -->
+            <div class="function-card rounded-lg p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">SORT & UNIQUE</h2>
+                <p class="text-sm mb-4 text-slate-600">A powerful duo. UNIQUE returns a list of unique values from a range, and SORT arranges them. Often used together to create clean, ordered lists for reports.</p>
+                <dl class="text-sm">
+                    <dt class="font-semibold text-slate-800">Syntax (Combo):</dt>
+                    <dd><code>=SORT(UNIQUE(array))</code></dd>
+                </dl>
+            </div>
+            
+            <!-- Card: SUMIFS -->
+            <div class="function-card rounded-lg p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">SUMIFS</h2>
+                <p class="text-sm mb-4 text-slate-600">Sums cells in a range that meet multiple criteria across different ranges. Essential for conditional aggregation in summary reports.</p>
+                <dl class="text-sm">
+                    <dt class="font-semibold text-slate-800">Syntax:</dt>
+                    <dd><code>=SUMIFS(sum_range, criteria_range1, criteria1, ...)</code></dd>
+                </dl>
+            </div>
+
+            <!-- Card: HSTACK -->
+            <div class="function-card rounded-lg p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">HSTACK</h2>
+                <p class="text-sm mb-4 text-slate-600">Appends arrays horizontally. "Glues" separate columns or arrays of data together side-by-side to create a single, combined array.</p>
+                <dl class="text-sm">
+                    <dt class="font-semibold text-slate-800">Syntax:</dt>
+                    <dd><code>=HSTACK(array1, array2, ...)</code></dd>
+                </dl>
+            </div>
+
+            <!-- Card: LET -->
+            <div class="function-card rounded-lg p-6">
+                <h2 class="text-xl font-bold text-slate-900 mb-2">LET</h2>
+                <p class="text-sm mb-4 text-slate-600">Improves formula readability and performance by assigning names to calculation results. Useful for breaking down complex formulas into logical, named parts.</p>
+                <dl class="text-sm">
+                    <dt class="font-semibold text-slate-800">Syntax:</dt>
+                    <dd><code>=LET(name1, value1, final_calculation)</code></dd>
+                </dl>
+            </div>
+        </main>
+
+        <!-- Troubleshooting Section -->
+        <section class="mt-16">
+             <header class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">Troubleshooting Toolkit</h2>
+             </header>
+             <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md border border-slate-200 p-6">
+                 <h3 class="font-semibold text-slate-900 text-lg mb-3">When your formulas don't work as expected:</h3>
+                 <div class="space-y-4 text-sm">
+                    <div>
+                        <h4 class="font-semibold text-slate-800">1. Un-nest Manually</h4>
+                        <p class="mt-1 text-slate-600">If you have a complex formula with functions inside other functions, pull them apart. Copy each inner part into its own cell. This lets you see the result of each step so you can find exactly where the logic is breaking down.</p>
+                    </div>
+                     <div>
+                        <h4 class="font-semibold text-slate-800">2. Use the Evaluate Formula Tool</h4>
+                        <p class="mt-1 text-slate-600">This is Excel's built-in debugger. Select the cell with your formula, go to the <code class="text-xs">Formulas</code> tab in the ribbon, and click <code class="text-xs">Evaluate Formula</code>. You can click "Evaluate" repeatedly to watch Excel solve your formula one step at a time. It's the best way to see the calculation flow and spot errors.</p>
+                    </div>
+                 </div>
+             </div>
+        </section>
+        
+        <!-- Documentation Viewer Section -->
+        <section class="mt-16">
+             <header class="text-center mb-8">
+                <h2 class="text-3xl font-bold text-slate-800 tracking-tight">Documentation Viewer</h2>
+                <p class="mt-2 text-md text-slate-600">Click a function below to view its official Microsoft documentation.</p>
+             </header>
+             
+             <div class="bg-white rounded-lg shadow-lg border border-slate-200">
+                <!-- Buttons -->
+                <div class="p-4 border-b border-slate-200 bg-slate-50 rounded-t-lg">
+                    <div class="flex flex-wrap items-center justify-center gap-2">
+                        <!-- Function Buttons -->
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/xlookup-function-b7fd680e-6d10-43e6-84f9-88eae8bf5929')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">XLOOKUP</button>
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/filter-function-f4f7cb66-82eb-4767-8f7c-4877ad80c759')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">FILTER</button>
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/unique-function-c5ab87fd-30a3-4ce9-9d1a-40204fb85e1e')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">UNIQUE</button>
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/sort-function-22f63bd0-ccc8-492f-953d-c20e8e44b86c')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">SORT</button>
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/sumifs-function-c9e748f5-7ea7-455d-9406-611cebce642b')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">SUMIFS</button>
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/hstack-function-98c4ab76-10fe-4b4f-8d5f-af1c125fe8c2')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">HSTACK</button>
+                        <button onclick="showDocs('https://support.microsoft.com/en-us/office/let-function-34842dd7-b92f-4446-b92a-b76451353f62')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">LET</button>
+                        <!-- Open in New Tab Button -->
+                        <div class="border-l border-slate-300 mx-2 h-6"></div>
+                        <button id="open-new-tab-btn" onclick="openInNewTab()" class="doc-button inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" disabled>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
+                            Open in New Tab
+                        </button>
+                    </div>
+                </div>
+                <!-- Iframe Viewer -->
+                <div class="p-1 bg-white rounded-b-lg">
+                    <iframe id="docs-viewer" class="w-full h-[60vh] border-0" 
+                        srcdoc="<body style='font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100%; color: #64748b;'><div><h3 style='text-align:center; font-weight:500;'>Please select a function above.</h3><p style='text-align:center; font-size: 0.875rem;'>The official documentation will be loaded here.</p><p style='text-align:center; font-size: 0.75rem; color: #94a3b8;'>(Note: If a page doesn't load correctly due to security policies, please use the 'Open in New Tab' button.)</p></div></body>"
+                    ></iframe>
+                </div>
+             </div>
+        </section>
+
+    </div>
+
+    <script>
+        let currentDocsUrl = null;
+
+        // JavaScript to control the iframe source
+        function showDocs(url) {
+            const iframe = document.getElementById('docs-viewer');
+            const openBtn = document.getElementById('open-new-tab-btn');
+
+            if (iframe && openBtn) {
+                // Show a loading message
+                iframe.srcdoc = "<body style='font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100%; color: #64748b;'><div><h3 style='font-weight:500;'>Loading documentation...</h3></div></body>";
+                
+                // Load the actual content
+                iframe.src = url;
+
+                // Store the URL and enable the 'Open in New Tab' button
+                currentDocsUrl = url;
+                openBtn.disabled = false;
+            }
+        }
+
+        // Function for the 'Open in New Tab' button
+        function openInNewTab() {
+            if (currentDocsUrl) {
+                window.open(currentDocsUrl, '_blank', 'noopener,noreferrer');
+            }
+        }
+    </script>
+
+</body>
+</html>
