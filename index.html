@@ -141,7 +141,7 @@
         <section class="mt-16">
              <header class="text-center mb-8">
                 <h2 class="text-3xl font-bold text-slate-800 tracking-tight">Documentation Viewer</h2>
-                <p class="mt-2 text-md text-slate-600">Click a function below to view its official Microsoft documentation.</p>
+                <p class="mt-2 text-md text-slate-600">Click a function below to open its official Microsoft documentation in a new tab.</p>
              </header>
              
              <div class="bg-white rounded-lg shadow-lg border border-slate-200">
@@ -156,51 +156,18 @@
                         <button onclick="showDocs('https://support.microsoft.com/en-us/office/sumifs-function-c9e748f5-7ea7-455d-9406-611cebce642b')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">SUMIFS</button>
                         <button onclick="showDocs('https://support.microsoft.com/en-us/office/hstack-function-98c4ab76-10fe-4b4f-8d5f-af1c125fe8c2')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">HSTACK</button>
                         <button onclick="showDocs('https://support.microsoft.com/en-us/office/let-function-34842dd7-b92f-4446-b92a-b76451353f62')" class="doc-button px-4 py-2 text-sm font-medium text-slate-700 bg-white border border-slate-300 rounded-md hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">LET</button>
-                        <!-- Open in New Tab Button -->
-                        <div class="border-l border-slate-300 mx-2 h-6"></div>
-                        <button id="open-new-tab-btn" onclick="openInNewTab()" class="doc-button inline-flex items-center gap-2 px-4 py-2 text-sm font-medium text-blue-600 bg-blue-50 border border-blue-200 rounded-md hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" disabled>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right-from-square"><path d="M21 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h6"/><path d="m21 3-9 9"/><path d="M15 3h6v6"/></svg>
-                            Open in New Tab
-                        </button>
                     </div>
                 </div>
                 <!-- Iframe Viewer -->
-                <div class="p-1 bg-white rounded-b-lg">
-                    <iframe id="docs-viewer" class="w-full h-[60vh] border-0" 
-                        srcdoc="<body style='font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100%; color: #64748b;'><div><h3 style='text-align:center; font-weight:500;'>Please select a function above.</h3><p style='text-align:center; font-size: 0.875rem;'>The official documentation will be loaded here.</p><p style='text-align:center; font-size: 0.75rem; color: #94a3b8;'>(Note: If a page doesn't load correctly due to security policies, please use the 'Open in New Tab' button.)</p></div></body>"
-                    ></iframe>
-                </div>
              </div>
         </section>
 
     </div>
 
     <script>
-        let currentDocsUrl = null;
-
-        // JavaScript to control the iframe source
+        // JavaScript to control the documentation links
         function showDocs(url) {
-            const iframe = document.getElementById('docs-viewer');
-            const openBtn = document.getElementById('open-new-tab-btn');
-
-            if (iframe && openBtn) {
-                // Show a loading message
-                iframe.srcdoc = "<body style='font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100%; color: #64748b;'><div><h3 style='font-weight:500;'>Loading documentation...</h3></div></body>";
-                
-                // Load the actual content
-                iframe.src = url;
-
-                // Store the URL and enable the 'Open in New Tab' button
-                currentDocsUrl = url;
-                openBtn.disabled = false;
-            }
-        }
-
-        // Function for the 'Open in New Tab' button
-        function openInNewTab() {
-            if (currentDocsUrl) {
-                window.open(currentDocsUrl, '_blank', 'noopener,noreferrer');
-            }
+            window.open(url, '_blank', 'noopener,noreferrer');
         }
     </script>
 
